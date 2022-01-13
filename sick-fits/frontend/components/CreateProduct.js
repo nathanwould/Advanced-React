@@ -6,7 +6,7 @@ import Form from './styles/Form';
 import DisplayError from './ErrorMessage.js';
 import { ALL_PRODUCTS_QUERY } from './Products';
 
-const CREATE_PRODUCT_MUTATION = gql`
+export const CREATE_PRODUCT_MUTATION = gql`
   mutation CREATE_PRODUCT_MUTATION(
     $name: String!
     $description: String!
@@ -31,7 +31,12 @@ const CREATE_PRODUCT_MUTATION = gql`
 `;
 
 export default function CreateProduct() {
-  const { inputs, handleChange, clearForm, resetForm } = useForm();
+  const { inputs, handleChange, clearForm, resetForm } = useForm({
+    image: '',
+    name: '',
+    price: 0,
+    description: '',
+  });
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,
     {

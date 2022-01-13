@@ -37,7 +37,6 @@ function createClient({ headers, initialState }) {
           fields: {
             // TODO: We will add this together!
             allProducts: paginationField(),
-            // allProducts: paginationField(),
           },
         },
       },
